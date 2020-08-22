@@ -11,5 +11,5 @@ int n = 9;
 
 Square[][] newMap = map(n);
 char[] playerSymbols = {'X', 'O'};
-int numberInRowToWin = 2;
+int numberInRowToWin = 4;
 Game game = new Game(newMap, 0, playerSymbols.length, playerSymbols);
