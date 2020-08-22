@@ -27,5 +27,30 @@ void draw()
    
     game.turn(clickedSquare);
     //newMap[indexX][indexY].changeState('X');
+    for (int i=0; i<numberInRowToWin; i++) //<>//
+    { //<>// //<>//
+      if (indexX+i<n)
+      { //<>//
+        circle(newMap[indexX+i][indexY].x,newMap[indexX+i][indexY].y, 10);
+      }  
+      if (indexX-i>=0)
+      {
+        circle(newMap[indexX-i][indexY].x,newMap[indexX-i][indexY].y, 10);
+      }
+      if (indexY+i<n)
+      {
+        circle(newMap[indexX][indexY+i].x,newMap[indexX][indexY+i].y, 10);
+      }  
+      if (indexY-i>=0)
+      {
+        circle(newMap[indexX][indexY-i].x,newMap[indexX][indexY-i].y, 10);
+      }        
+      
+      
+      
+      
+      
+      
+    }
   }
 }
