@@ -27,40 +27,25 @@ void draw()
    
     game.turn(clickedSquare);
     //newMap[indexX][indexY].changeState('X');
-    circle(clickedSquare.x, clickedSquare.y, 10);
+    int xDisplace = clickedSquare.w/2;
+    int yDisplace = clickedSquare.h/2;
+    circle(clickedSquare.x+xDisplace, clickedSquare.y+yDisplace, 10);
     for (int i=1; i<numberInRowToWin; i++) //<>//
     { //<>//
       int a = i*int(indexX+i<n);
       int b = i*int(indexX-i>=0);
       int c = i*int(indexY+i<n);
-      int d = i*int(indexY-i>=0); //<>// //<>//
-      circle(newMap[indexX+a][indexY].x,newMap[indexX+a][indexY].y, 10);
-      circle(newMap[indexX-b][indexY].x,newMap[indexX-b][indexY].y, 10);
-      circle(newMap[indexX][indexY+c].x,newMap[indexX][indexY+c].y, 10);
-      circle(newMap[indexX][indexY-d].x,newMap[indexX][indexY-d].y, 10);
-      circle(newMap[indexX+a][indexY-d].x,newMap[indexX+a][indexY-d].y, 10);      
-      circle(newMap[indexX+a][indexY+c].x,newMap[indexX+a][indexY+c].y, 10);    
-      circle(newMap[indexX-b][indexY-d].x,newMap[indexX-b][indexY-d].y, 10);    
-      circle(newMap[indexX-b][indexY+c].x,newMap[indexX-b][indexY+c].y, 10);    
-      
-      /*if (indexX-i>=0)
-      {
-        circle(newMap[indexX-i][indexY].x,newMap[indexX-i][indexY].y, 10);
-      }
-      if (indexY+i<n)
-      {
-        circle(newMap[indexX][indexY+i].x,newMap[indexX][indexY+i].y, 10);
-      }  
-      if (indexY-i>=0)
-      {
-        circle(newMap[indexX][indexY-i].x,newMap[indexX][indexY-i].y, 10);
-      } */       
+      int d = i*int(indexY-i>=0);  //<>//
+      circle(newMap[indexX+a][indexY].x+xDisplace,newMap[indexX+a][indexY].y+yDisplace, 10);
+      circle(newMap[indexX-b][indexY].x+xDisplace,newMap[indexX-b][indexY].y+yDisplace, 10);
+      circle(newMap[indexX][indexY+c].x+xDisplace,newMap[indexX][indexY+c].y+yDisplace, 10);
+      circle(newMap[indexX][indexY-d].x+xDisplace,newMap[indexX][indexY-d].y+yDisplace, 10);
+      circle(newMap[indexX+a][indexY-d].x+xDisplace,newMap[indexX+a][indexY-d].y+yDisplace, 10);      
+      circle(newMap[indexX+a][indexY+c].x+xDisplace,newMap[indexX+a][indexY+c].y+yDisplace, 10);    
+      circle(newMap[indexX-b][indexY-d].x+xDisplace,newMap[indexX-b][indexY-d].y+yDisplace, 10);    
+      circle(newMap[indexX-b][indexY+c].x+xDisplace,newMap[indexX-b][indexY+c].y+yDisplace, 10);    
       
       
-      
-      
-      
-      
-    }
+     }
   }
 }
