@@ -15,6 +15,9 @@ class Square
     this.state = '_';
   }
   
+  public Square()
+  {}
+  
   public void changeState(char state)
   {
     this.state = state;

@@ -30,8 +30,9 @@ void draw()
     int xDisplace = clickedSquare.w/2;
     int yDisplace = clickedSquare.h/2;
     circle(clickedSquare.x+xDisplace, clickedSquare.y+yDisplace, 10);
+    String[] ConnectedGraphString = {String.valueOf(clickedSquare.state)}; //Four disjoint graphs that you can imagine as 4 parallel lines with dots on them for each vertex that represent their position on the grid.
     for (int i=1; i<numberInRowToWin; i++) //<>//
-    { //<>//
+    {     //<>//
       int a = i*int(indexX+i<n);
       int b = i*int(indexX-i>=0);
       int c = i*int(indexY+i<n);
@@ -44,8 +45,12 @@ void draw()
       circle(newMap[indexX+a][indexY+c].x+xDisplace,newMap[indexX+a][indexY+c].y+yDisplace, 10);    
       circle(newMap[indexX-b][indexY-d].x+xDisplace,newMap[indexX-b][indexY-d].y+yDisplace, 10);    
       circle(newMap[indexX-b][indexY+c].x+xDisplace,newMap[indexX-b][indexY+c].y+yDisplace, 10);    
+            
+      ConnectedGraphString[0] = newMap[indexX-b][indexY].state + ConnectedGraphString[0] + newMap[indexX+a][indexY].state;
       
-      
+      print(ConnectedGraphString[0]);
+           print("\n");
      }
+     print("\n");
   }
 }
