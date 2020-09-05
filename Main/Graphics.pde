@@ -26,15 +26,12 @@ void draw()
     Square clickedSquare = newMap[indexX][indexY];
    
     game.turn(clickedSquare);
-
-    String[] ConnectedGraphString = {String.valueOf(clickedSquare.state)}; //Four disjoint graphs that you can imagine as 4 parallel lines with dots on them for each vertex that represent their position on the grid.
    //<>// //<>// //<>//
-    ConnectedGraphString = ConnectionInformation(indexX, indexY, clickedSquare);
+    String[] ConnectedGraphString = ConnectionInformation(indexX, indexY, clickedSquare);
       
-    print(ConnectedGraphString[3]);
-    print("\n");
-     
-
+    //For debugging connections
+    /*print(ConnectedGraphString[3]);
+    print("\n");*/
   }
 }
 
@@ -55,33 +52,27 @@ String[] ConnectionInformation(int indexX, int indexY, Square clickedSquare)
     //Same but for the bottom of the board
     int d = i*int(indexY-i>=0); 
     
-    
+    //This is ugly I should fix this
     if (i!=0)
     {
-     ConnectedGraphString[0] = ((b != 0) ? newMap[indexX-b][indexY].state : '_') 
-    + ConnectedGraphString[0] 
-    + ((a != 0) ? newMap[indexX+a][indexY].state : '_');
-    
-     ConnectedGraphString[1] = ((d != 0) ? newMap[indexX][indexY-d].state : '_') 
-    + ConnectedGraphString[1] 
-    + ((c != 0) ? newMap[indexX][indexY+c].state : '_');
-    
-     ConnectedGraphString[2] = ((b != 0 && c != 0) ? newMap[indexX-b][indexY+c].state : '_') 
-    + ConnectedGraphString[2] 
-    + ((a != 0 && d != 0) ? newMap[indexX+a][indexY-d].state : '_');
-    
+       ConnectedGraphString[0] = ((b != 0) ? newMap[indexX-b][indexY].state : '_') 
+      + ConnectedGraphString[0] 
+      + ((a != 0) ? newMap[indexX+a][indexY].state : '_');
+      
+       ConnectedGraphString[1] = ((d != 0) ? newMap[indexX][indexY-d].state : '_') 
+      + ConnectedGraphString[1] 
+      + ((c != 0) ? newMap[indexX][indexY+c].state : '_');
+      
+       ConnectedGraphString[2] = ((b != 0 && c != 0) ? newMap[indexX-b][indexY+c].state : '_') 
+      + ConnectedGraphString[2] 
+      + ((a != 0 && d != 0) ? newMap[indexX+a][indexY-d].state : '_');
+      
       ConnectedGraphString[3] = ((b != 0 && d != 0) ? newMap[indexX-b][indexY-d].state : '_') 
-    + ConnectedGraphString[3] 
-    + ((a != 0 && c !=0) ? newMap[indexX+a][indexY+c].state : '_');   
-    
-    
-    
+      + ConnectedGraphString[3] 
+      + ((a != 0 && c !=0) ? newMap[indexX+a][indexY+c].state : '_');   
     }  
-    
-    
-} 
-   
-    return ConnectedGraphString;
+  } 
+  return ConnectedGraphString;
 }
 
 
